@@ -4,10 +4,10 @@
 #
 Name     : perl-Devel-Symdump
 Version  : 2.18
-Release  : 8
+Release  : 9
 URL      : https://cpan.metacpan.org/authors/id/A/AN/ANDK/Devel-Symdump-2.18.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/A/AN/ANDK/Devel-Symdump-2.18.tar.gz
-Summary  : 'dump symbol names or the symbol table'
+Summary  : Perl symbol table access and dumping
 Group    : Development/Tools
 License  : Artistic-1.0-Perl
 BuildRequires : buildreq-cpan
@@ -26,6 +26,7 @@ $obj = Devel::Symdump->rnew(@packs);       # with recursion
 Summary: dev components for the perl-Devel-Symdump package.
 Group: Development
 Provides: perl-Devel-Symdump-devel = %{version}-%{release}
+Requires: perl-Devel-Symdump = %{version}-%{release}
 
 %description dev
 dev components for the perl-Devel-Symdump package.
