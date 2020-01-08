@@ -4,12 +4,13 @@
 #
 Name     : perl-Devel-Symdump
 Version  : 2.18
-Release  : 11
+Release  : 12
 URL      : https://cpan.metacpan.org/authors/id/A/AN/ANDK/Devel-Symdump-2.18.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/A/AN/ANDK/Devel-Symdump-2.18.tar.gz
-Summary  : Perl symbol table access and dumping
+Summary  : 'dump symbol names or the symbol table'
 Group    : Development/Tools
 License  : Artistic-1.0-Perl
+Requires: perl-Devel-Symdump-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 
 %description
@@ -32,14 +33,24 @@ Requires: perl-Devel-Symdump = %{version}-%{release}
 dev components for the perl-Devel-Symdump package.
 
 
+%package perl
+Summary: perl components for the perl-Devel-Symdump package.
+Group: Default
+Requires: perl-Devel-Symdump = %{version}-%{release}
+
+%description perl
+perl components for the perl-Devel-Symdump package.
+
+
 %prep
 %setup -q -n Devel-Symdump-2.18
+cd %{_builddir}/Devel-Symdump-2.18
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
+export LANG=C.UTF-8
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
 make  %{?_smp_mflags}
@@ -49,7 +60,7 @@ else
 fi
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
@@ -69,9 +80,12 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/Devel/Symdump.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Devel/Symdump/Export.pm
 
 %files dev
 %defattr(-,root,root,-)
 /usr/share/man/man3/Devel::Symdump.3
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.30.1/Devel/Symdump.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Devel/Symdump/Export.pm
