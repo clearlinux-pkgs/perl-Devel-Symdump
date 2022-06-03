@@ -4,7 +4,7 @@
 #
 Name     : perl-Devel-Symdump
 Version  : 2.18
-Release  : 21
+Release  : 22
 URL      : https://cpan.metacpan.org/authors/id/A/AN/ANDK/Devel-Symdump-2.18.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/A/AN/ANDK/Devel-Symdump-2.18.tar.gz
 Summary  : 'dump symbol names or the symbol table'
@@ -87,5 +87,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.34.0/Devel/Symdump.pm
-/usr/lib/perl5/vendor_perl/5.34.0/Devel/Symdump/Export.pm
+/usr/lib/perl5/*
