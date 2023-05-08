@@ -4,7 +4,7 @@
 #
 Name     : perl-Devel-Symdump
 Version  : 2.18
-Release  : 22
+Release  : 23
 URL      : https://cpan.metacpan.org/authors/id/A/AN/ANDK/Devel-Symdump-2.18.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/A/AN/ANDK/Devel-Symdump-2.18.tar.gz
 Summary  : 'dump symbol names or the symbol table'
